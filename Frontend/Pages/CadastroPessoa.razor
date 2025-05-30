@@ -1,0 +1,59 @@
+﻿@page "/CadastroPessoa"
+@using Son.Componentes
+@using Son.Comum.Model
+@using Son.Infra
+@inject HttpClient api
+@inject Sistema sistema
+
+<Mensagem @ref="msg"></Mensagem>
+
+<PessoaComp @ref="pessoaComp" ModelPessoa="pessoa" MostrarTitulo=true AoResponder="AoResponder"></PessoaComp>
+
+
+@code {
+    private PessoaModel pessoa = new();
+    private Mensagem msg = default!;
+    private PessoaComp pessoaComp = default!;
+
+    private async Task AoResponder((PessoaModel, bool) args)
+    {
+        string? mensagem;
+
+        if (args.Item2)
+        {
+            try
+            {
+                HttpResponseMessage retorno = await api.PostAsJsonAsync<PessoaModel>("Pessoa/Inserir", args.Item1);
+                mensagem = await retorno.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Trim().ToUpper() == "TYPEERROR: FAILED TO FETCH")
+                    mensagem = "Não foi possível conectar ao servidor (API)\n" + ex.Message;
+                else
+                    mensagem = ex.Message;
+            }
+
+            if (string.IsNullOrEmpty(mensagem))
+            {
+                await msg.Mostrar("Dados salvo com sucesso");
+                pessoaComp.Limpar();
+            }
+            else
+            {
+                string msgTexto = mensagem.ToUpper();
+
+                if (msgTexto.Contains("One or more validation errors occurred".ToUpper()))
+                    await msg.Mostrar("Preencha os campos obrigatório.");
+                else
+                    await msg.Mostrar(mensagem);
+            }
+        }
+        else
+        {
+            pessoaComp.Limpar();
+        }
+
+        return;
+    }
+}
