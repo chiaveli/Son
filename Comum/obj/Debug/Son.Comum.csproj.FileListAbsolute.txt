@@ -1,0 +1,12 @@
+C:\Projetos\SON\Comum\bin\Debug\Son.Comum.dll
+C:\Projetos\SON\Comum\bin\Debug\Son.Comum.pdb
+C:\Projetos\SON\Comum\bin\Debug\Dapper.Contrib.dll
+C:\Projetos\SON\Comum\bin\Debug\Dapper.dll
+C:\Projetos\SON\Comum\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Projetos\SON\Comum\bin\Debug\Dapper.xml
+C:\Projetos\SON\Comum\bin\Debug\Dapper.Contrib.xml
+C:\Projetos\SON\Comum\obj\Debug\Son.Comum.csproj.AssemblyReference.cache
+C:\Projetos\SON\Comum\obj\Debug\Son.Comum.csproj.CoreCompileInputs.cache
+C:\Projetos\SON\Comum\obj\Debug\Son.Comum.csproj.Up2Date
+C:\Projetos\SON\Comum\obj\Debug\Son.Comum.dll
+C:\Projetos\SON\Comum\obj\Debug\Son.Comum.pdb
