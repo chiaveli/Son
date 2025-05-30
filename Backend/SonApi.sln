@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonApi", "SonApi.csproj", "{E4C1542E-BA3B-4219-868C-E61284FBE340}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Son.Comum", "..\Son.Comum\Son.Comum.csproj", "{B0AB6F4A-67A7-4C8D-8F65-CC3D92EF2936}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4C1542E-BA3B-4219-868C-E61284FBE340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C1542E-BA3B-4219-868C-E61284FBE340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C1542E-BA3B-4219-868C-E61284FBE340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C1542E-BA3B-4219-868C-E61284FBE340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AB6F4A-67A7-4C8D-8F65-CC3D92EF2936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AB6F4A-67A7-4C8D-8F65-CC3D92EF2936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AB6F4A-67A7-4C8D-8F65-CC3D92EF2936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AB6F4A-67A7-4C8D-8F65-CC3D92EF2936}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A6310E8-D827-4B85-8E56-FF804E27EA80}
+	EndGlobalSection
+EndGlobal
