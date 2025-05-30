@@ -1,0 +1,61 @@
+﻿@page "/LoginComp"
+@inherits LayoutLogin
+@using Son.Comum.Infra
+@using System.Net
+@using Son.Infra
+@inject HttpClient api
+
+<PageTitle>Login - SON</PageTitle>
+
+<Mensagem @ref="@msg"/>
+
+<div style="display: grid; place-items: center; margin-top:10%">
+
+    <div class="row col-sm-12 col-md-6 col-lg-3">
+        <div class="form-control">
+            <label>Seu login</label>
+            <TextInput @bind-Value="login"></TextInput>
+        </div>
+    </div>
+
+    <div class="row col-sm-12 col-md-6 col-lg-3">
+        <div class="form-control">
+            <label>Sua senha</label>
+            <PasswordInput @bind-Value="senha"></PasswordInput>
+        </div>
+    </div>
+
+    <div class="row col-sm-12 col-md-6 col-lg-3">
+        <Button @onclick="Logar" Class="btn btn-primary">Login</Button>
+    </div>
+    <div style="margin-top:5px">
+        <a style="align-items:self-end" href="#">Esqueci minha senha</a>
+    </div>
+    <div style="margin-top:5px">
+        <CheckboxInput Label="Lembrar minhas credências?" @bind-Value="lembrar" />
+    </div>    
+</div>
+@code {
+    private string login;
+    private string senha;
+    private bool lembrar;
+    private Mensagem msg = default!;
+
+    private async Task Logar()
+    {
+        DadosLogin? dadosLogin = new();
+        dadosLogin.Email = login;
+        dadosLogin.Senha = senha;
+        HttpResponseMessage retorno = await api.PostAsJsonAsync<DadosLogin>("Login/", dadosLogin);
+
+        if (retorno.StatusCode == HttpStatusCode.OK)
+        {
+            dadosLogin = await retorno.Content.ReadFromJsonAsync<DadosLogin>();
+            UsuarioLogado.CarregarLogin(dadosLogin!);
+            await msg.Mostrar("Acesso permitidp");
+
+        }
+        else
+            await msg.Mostrar("Login negado. Verifique se o seu Email e senha estão corretos");
+    }
+}
